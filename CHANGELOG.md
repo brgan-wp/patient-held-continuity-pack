@@ -1,5 +1,9 @@
 # Changelog
 
+## Website favicon - 2026-09-22
+
+Added the existing Stationary Store favicon to every public page, generated guide and offline/source bundle. Templates remain v1.1.0.
+
 ## 1.1.0 - 2026-09-22
 
 Medicines information now has two sides: the existing current list and a pharmacy-label reverse with three large spaces, added/check dates, links to front rows and status prompts. Suggests spare labels or copies while keeping original packaging labels intact. Starter pack increases from 11 to 12 pages. All current templates carry v1.1.0 for a consistent release; previous versioned downloads remain available.
