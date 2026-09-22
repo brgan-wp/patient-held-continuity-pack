@@ -1,0 +1,58 @@
+{
+  "advocacy-brief-v1.0.0.pdf": {
+    "pages": 1,
+    "sha256": "122c4d0469d0a7b4b6bac1f955951e95bcb619f646e434a73dd118f444d5c9ea"
+  },
+  "advocacy-targets-v1.0.0.pdf": {
+    "pages": 1,
+    "sha256": "276de501d8ba6e62d2c5224f2be5c243fe80da3ae549d2cf76e02c1e50b3d8ea"
+  },
+  "appointment-sheet-v1.0.0.pdf": {
+    "pages": 1,
+    "sha256": "6380524f64d56c9ae94b417eab4ef73d38b8eb286a28e7ad9421272db8fe1024"
+  },
+  "current-information-v1.0.0.pdf": {
+    "pages": 1,
+    "sha256": "9eaeeaeaccd8718dd5e891f9c8ba1ac19e48fb28402f190b663139d19cdc55d0"
+  },
+  "evidence-v1.0.0.pdf": {
+    "pages": 1,
+    "sha256": "b9674fb664d13698c9617824fa9f082de57d4d0c63baea0192701d8512e53833"
+  },
+  "folder-dividers-v1.0.0.pdf": {
+    "pages": 6,
+    "sha256": "77ca70b8450f1b6ce6c16ffdf0d6aacbd2ec42f3bf405f512c29457e8bba306c"
+  },
+  "follow-up-tracker-v1.0.0.pdf": {
+    "pages": 1,
+    "sha256": "22abd39a26793c58446b96029888f1b4c437a0710b32a3f82e5728bed59aa746"
+  },
+  "how-to-use-appointment-sheet-v1.0.0.pdf": {
+    "pages": 1,
+    "sha256": "351bf0c44ed2e6d849f34f6b9d7c67e989f07d0bb2636e340522c7d3e62bd53c"
+  },
+  "medicines-list-v1.0.0.pdf": {
+    "pages": 1,
+    "sha256": "8f8a75d6a98283e62458b1a2cb471b6b517209339392031a4ee72c3e9b8422a8"
+  },
+  "pilot-consent-v1.0.0.pdf": {
+    "pages": 1,
+    "sha256": "0890b1207efc33d3f9b327fa44dcd63a2ca8f717a3e2a07f0b74464297a468f9"
+  },
+  "pilot-feedback-v1.0.0.pdf": {
+    "pages": 1,
+    "sha256": "895dd9b62cfff5394620f52f70dc0ca2ce7e9454eae8b387c23769a0b1d8e017"
+  },
+  "pilot-plan-v1.0.0.pdf": {
+    "pages": 2,
+    "sha256": "bb185f9616c05866aecbfca713fe4e8d9976cf50e5f653c3b2de6929fcc92b6e"
+  },
+  "quick-start-v1.0.0.pdf": {
+    "pages": 1,
+    "sha256": "38c058da05f522fe432a9e552e08080226782738e1b8a76e513cf9272c530462"
+  },
+  "talk-script-v1.0.0.pdf": {
+    "pages": 3,
+    "sha256": "893c218f80f44807023368789e8a06ac79cd06f2b3610dd316d925b1fb42c1c6"
+  }
+}

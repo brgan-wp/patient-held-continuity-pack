@@ -1,0 +1,44 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><title>Patient-held Continuity Pack | Patient-held Continuity Pack</title><link rel="stylesheet" href="../style.css"></head><body><a class="skip" href="#main">Skip to content</a><main id="main" class="guide"><a class="back" href="../index.html">Back to the pack and downloads</a><h1>Patient-held Continuity Pack</h1>
+<p>Version <strong>1.0.0</strong> · 22 September 2026 · First public release, not clinically validated.</p>
+<p>A free, open-source folder kit for keeping your own notes and copies of healthcare information together. Bring it to appointments, write down what you understand, and keep track of the next step. It is a patient support tool, not a clinical system.</p>
+<p><strong>Start where you are.</strong> Put a folder together, fill in the current information you know, and use one appointment sheet at your very next visit. Add older letters later, as time allows. You do not need a complete history before starting.</p>
+<p>Published downloads: <a href="https://stationarystore.ie/patient-held-continuity-pack/">https://stationarystore.ie/patient-held-continuity-pack/</a></p>
+<h2>Start today</h2>
+<ol>
+<li>Download the printable starter pack, or individual PDFs from the website.</li>
+<li>Print on A4 at actual size. Use any folder; colour printing and special stationery are unnecessary. Dividers print on separate sheets.</li>
+<li>Put the current information and dated medicines list first. Write “not sure” for anything uncertain. Keep a pharmacist's or clinical team's current list alongside your notes if you have one.</li>
+<li>Put a blank appointment sheet behind them. Choose the questions that matter most for the next visit.</li>
+<li>After the visit, note who is doing what, by when, and how you will hear about results. File the sheet and add open items to the follow-up tracker.</li>
+</ol>
+<h2>What's included</h2>
+<ul>
+<li>A one-page quick start and short appointment-sheet explainer.</li>
+<li>A one-page appointment sheet, current-information sheet, medicines list and follow-up tracker.</li>
+<li>Six full-page folder dividers: Current information; Appointments; Letters and care plans; Tests and results; Waiting and follow-up; Older information.</li>
+<li>A neutral one-page advocacy brief, sources and evidence limits, verified outreach targets, a timed 15-minute talk, and a proposed pilot with consent and feedback sheets.</li>
+<li>Printable PDFs, editable DOCX documents, Markdown guidance, source code and an offline HTML website. Every document carries its version.</li>
+</ul>
+<p><code>dist/</code> contains generated PDFs, DOCX files, the starter PDF and download ZIPs. <code>content/</code> holds editable source content. <code>scripts/build.py</code> builds documents and downloads; <code>site/</code> holds the static page. <code>docs/</code> holds the roadmap and contribution notes. There are no patient examples based on real people.</p>
+<h2>Safe everyday use</h2>
+<p>The folder is your account and your copies, not the official health record. It may be incomplete or out of date. Date every update, record where important information came from, and keep original letters intact. Mark old summaries “superseded” and move them to Older information. Put disputed or uncertain details in the questions section; do not silently resolve a mismatch between records.</p>
+<p>Ask “Can I read back what I understood and check whether I have missed anything?” This asks a clinician to confirm your understanding of the conversation. It does not ask for a signature, certification or approval of the whole folder. No signature field is provided.</p>
+<p>Do not start, stop or change treatment because of a template or your interpretation of a note. Ask the relevant clinician or pharmacist about unclear instructions. Record the advice on when and how to seek help. Do not wait for a folder update or an expected letter if you need care. The folder does not monitor results or contact services for you.</p>
+<p>Use only the sections that help you. A trusted supporter can write with your permission; you choose what to share. Arrange communication or access support through your usual service if needed. A folder is optional and must never become a condition of care or shift the service's responsibility for coordination onto you.</p>
+<h2>Privacy</h2>
+<p>Phase one is static files only: no accounts, uploads, questionnaires, patient database or health-data collection. The project page has no analytics script, cookies or external fonts. The existing web server and proxy can record ordinary access information, including IP addresses and requested URLs; this is not a promise of zero website metadata.</p>
+<p>Completed files belong on your own device or in your paper folder. Do not email completed sheets to this project or post them in a public issue. Word and other editors may sync documents to a cloud account depending on your settings: choose a local folder and check those settings if you want local-only storage. Check shared printers and remove printed pages promptly. Keep the folder somewhere private; put contact details inside, not on the outside cover.</p>
+<h2>Advocacy and evidence</h2>
+<p>Begin with the one-page brief. It explains the problem and the limits of the proposal before asking for feedback. HSE guidance supports preparing questions, keeping notes and bringing current medicines information. That is a rationale for this design, not evidence that this particular pack improves clinical outcomes. The first pilot is a proposed usability exercise; no partners, participants or endorsements have been secured.</p>
+<p>See <code>content/evidence.md</code> and <code>content/advocacy-targets.md</code> for primary sources and verification dates. Other organisations' resources are linked, not relicensed or bundled. This pack does not replace an existing care passport, medicines list or service care plan that works for you.</p>
+<h2>Digital roadmap</h2>
+<p>Version 1.0.0 is complete as a static release. Later digital exploration is a placeholder only. Any future work must be privacy first and local first or self-hosted. See <code>docs/digital-roadmap.md</code>. There is no portal, AI summary, automatic sharing or digital patient record in this release.</p>
+<h2>Rebuild and adapt</h2>
+<p>Requires Python 3, python-docx, PyMuPDF, Markdown and LibreOffice. On a machine with those installed:</p>
+<pre><code class="language-sh">python3 scripts/build.py
+</code></pre>
+<p>The build also creates <code>release/</code>, a complete static site with downloads. Serve that directory with any static web server. The full download ZIP includes the same reading pages and documents: extract it and open <code>index.html</code> for offline use. Its download/source ZIP links are for the hosted release; individual document links work offline.</p>
+<p>The build uses a separate temporary LibreOffice profile, checks expected page counts and versions, and stops if conversion fails. Fonts use Liberation Sans with an ordinary sans-serif fallback. After changing wording or layout, inspect every PDF page and check DOCX pagination in your intended editor. DOCX files are editable tables and paragraphs; PDFs are printable, not interactive forms. Plain HTML and Markdown provide a reading alternative; the PDFs are not certified as PDF/UA.</p>
+<h2>Licence and contributions</h2>
+<p>All original text, templates, layout and code in this repository are released under the MIT licence in <code>LICENSE</code>. You may use, copy, adapt and redistribute them, including commercially, while keeping the copyright and licence notice. Attribution: “Patient-held Continuity Pack, Andrew Brogan, v1.0.0.” Do not imply clinical approval or endorsement by Andrew Brogan or any linked organisation. Third-party documents retain their own licences. No third-party logos are used.</p>
+<p>Send design feedback only, without personal health details, to andrew@stationarystore.ie. For adaptations, keep a version number and a change note, retain safety wording, and have people who will use the templates review them. See <code>docs/CONTRIBUTING.md</code>.</p></main><footer>Patient-held Continuity Pack · v1.0.0 · 22 September 2026 · <a href="../LICENSE.txt">MIT licence</a></footer></body></html>
