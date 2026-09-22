@@ -8,6 +8,8 @@ A free, open-source folder kit for keeping your own notes and copies of healthca
 
 Published downloads: https://continuity.stationarystore.ie/
 
+Website revision 2, 22 September 2026: an introduction with separate downloads, advocacy and background pages. See docs/DESIGN.md for the owner’s design direction. The PDF and Word templates remain v1.0.1.
+
 ## Start today
 
 1. Download the printable starter pack, or individual PDFs from the website.

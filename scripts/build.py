@@ -335,7 +335,7 @@ def guides():
         raw = re.sub(r'(?<![\(<])(https://[^\s<>]+)', r'<\1>', raw)
         body = markdown.markdown(raw, extensions=['fenced_code', 'tables'])
         title = html.escape(p.read_text().splitlines()[0].lstrip('# '))
-        page = f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><title>{title} | Patient-held Continuity Pack</title><link rel="stylesheet" href="../style.css"></head><body><a class="skip" href="#main">Skip to content</a><main id="main" class="guide"><a class="back" href="../index.html">Back to the pack and downloads</a>{body}</main><footer>Patient-held Continuity Pack · v{VERSION} · {DATE} · <a href="../LICENSE.txt">MIT licence</a></footer></body></html>'''
+        page = f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><title>{title} | Patient-held Continuity Pack</title><link rel="stylesheet" href="../style.css?rev=20260922b"></head><body><a class="skip" href="#main">Skip to content</a><main id="main" class="guide"><a class="back" href="../index.html">Back to the pack and downloads</a>{body}</main><footer>Patient-held Continuity Pack · v{VERSION} · {DATE} · <a href="../LICENSE.txt">MIT licence</a></footer></body></html>'''
         (target / f'{slug}.html').write_text(page)
     shutil.copy2(ROOT / 'LICENSE', ROOT / 'site' / 'LICENSE.txt')
 
