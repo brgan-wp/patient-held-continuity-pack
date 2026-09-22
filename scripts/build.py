@@ -71,7 +71,7 @@ def base(title, subtitle='Your notes, in your own words', size=11):
     foot._p.append(field)
     notice = s.footer.add_paragraph()
     notice.paragraph_format.space_after = Pt(0)
-    text(notice, '© 2026 Andrew Brogan | MIT licence: stationarystore.ie/patient-held-continuity-pack/LICENSE.txt', size=8)
+    text(notice, '© 2026 Andrew Brogan | MIT licence: continuity.stationarystore.ie/LICENSE.txt', size=8)
     d.core_properties.author = 'Andrew Brogan'
     d.core_properties.title = title
     d.core_properties.subject = f'Patient-held Continuity Pack v{VERSION}: blank public resource'
@@ -262,7 +262,7 @@ def markdown_docs():
 def build_pdfs():
     with tempfile.TemporaryDirectory(prefix='continuity-lo-') as profile:
         cmd = ['libreoffice', f'-env:UserInstallation={Path(profile).as_uri()}', '--headless', '--convert-to', 'pdf', '--outdir', str(OUT)]
-        result = subprocess.run(cmd + [str(p) for p in sorted(OUT.glob('*.docx'))], capture_output=True, text=True, timeout=150)
+        result = subprocess.run(cmd + [str(p) for p in sorted(OUT.glob(f'*-v{VERSION}.docx'))], capture_output=True, text=True, timeout=150)
         if result.returncode:
             raise RuntimeError(f'LibreOffice conversion failed: {result.stdout} {result.stderr}')
         if result.stderr.strip():
@@ -270,7 +270,7 @@ def build_pdfs():
     expected = {name: 1 for name in ['appointment-sheet', 'current-information', 'medicines-list', 'follow-up-tracker', 'quick-start', 'how-to-use-appointment-sheet', 'advocacy-brief', 'pilot-consent', 'pilot-feedback']}
     expected['folder-dividers'] = 6
     report = {}
-    for docx in sorted(OUT.glob('*.docx')):
+    for docx in sorted(OUT.glob(f'*-v{VERSION}.docx')):
         p = docx.with_suffix('.pdf')
         if not p.is_file():
             raise RuntimeError(f'Missing PDF: {p}')
@@ -296,14 +296,14 @@ def bundles():
         z.write(p, f'patient-held-continuity-pack-v{VERSION}/{p.relative_to(ROOT)}')
     with zipfile.ZipFile(OUT / f'patient-held-continuity-pack-v{VERSION}.zip', 'w', zipfile.ZIP_DEFLATED) as z:
         for p in sorted(OUT.iterdir()):
-            if p.suffix in ['.pdf', '.docx']:
+            if p.suffix in ['.pdf', '.docx'] and f'-v{VERSION}.' in p.name:
                 z.write(p, f'patient-held-continuity-pack-v{VERSION}/downloads/{p.name}')
         for p in sorted((ROOT / 'site').rglob('*')):
             if p.is_file():
                 target = f'patient-held-continuity-pack-v{VERSION}/{p.relative_to(ROOT / "site")}'
                 if p.suffix == '.html':
                     offline = p.read_text().replace('href="/"', 'href="https://stationarystore.ie/"')
-                    offline = re.sub(r'href="(downloads/[^\"]+(?:\.zip|SHA256SUMS))"', r'href="https://stationarystore.ie/patient-held-continuity-pack/\1"', offline)
+                    offline = re.sub(r'href="(downloads/[^\"]+(?:\.zip|SHA256SUMS))"', r'href="https://continuity.stationarystore.ie/\1"', offline)
                     z.writestr(target, offline)
                 else:
                     z.write(p, target)

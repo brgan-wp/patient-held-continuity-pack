@@ -1,6 +1,6 @@
 # Advocacy targets
 
-Version 1.0.0 · Public sources checked 22 September 2026
+Version 1.0.1 · Public sources checked 22 September 2026
 
 Start with organisations that support patient participation and practical communication. These are potential reviewers, not partners or endorsers. Contact routes below are public organisation inboxes; no named staff member is assumed to hold a role.
 

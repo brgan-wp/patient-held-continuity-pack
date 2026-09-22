@@ -1,12 +1,12 @@
 # Patient-held Continuity Pack
 
-Version **1.0.0** · 22 September 2026 · First public release, not clinically validated.
+Version **1.0.1** · 22 September 2026 · First public release, not clinically validated.
 
 A free, open-source folder kit for keeping your own notes and copies of healthcare information together. Bring it to appointments, write down what you understand, and keep track of the next step. It is a patient support tool, not a clinical system.
 
 **Start where you are.** Put a folder together, fill in the current information you know, and use one appointment sheet at your very next visit. Add older letters later, as time allows. You do not need a complete history before starting.
 
-Published downloads: https://stationarystore.ie/patient-held-continuity-pack/
+Published downloads: https://continuity.stationarystore.ie/
 
 ## Start today
 
@@ -50,7 +50,7 @@ See `content/evidence.md` and `content/advocacy-targets.md` for primary sources 
 
 ## Digital roadmap
 
-Version 1.0.0 is complete as a static release. Later digital exploration is a placeholder only. Any future work must be privacy first and local first or self-hosted. See `docs/digital-roadmap.md`. There is no portal, AI summary, automatic sharing or digital patient record in this release.
+Version 1.0.1 is complete as a static release. Later digital exploration is a placeholder only. Any future work must be privacy first and local first or self-hosted. See `docs/digital-roadmap.md`. There is no portal, AI summary, automatic sharing or digital patient record in this release.
 
 ## Rebuild and adapt
 
@@ -66,6 +66,6 @@ The build uses a separate temporary LibreOffice profile, checks expected page co
 
 ## Licence and contributions
 
-All original text, templates, layout and code in this repository are released under the MIT licence in `LICENSE`. You may use, copy, adapt and redistribute them, including commercially, while keeping the copyright and licence notice. Attribution: “Patient-held Continuity Pack, Andrew Brogan, v1.0.0.” Do not imply clinical approval or endorsement by Andrew Brogan or any linked organisation. Third-party documents retain their own licences. No third-party logos are used.
+All original text, templates, layout and code in this repository are released under the MIT licence in `LICENSE`. You may use, copy, adapt and redistribute them, including commercially, while keeping the copyright and licence notice. Attribution: “Patient-held Continuity Pack, Andrew Brogan, v1.0.1.” Do not imply clinical approval or endorsement by Andrew Brogan or any linked organisation. Third-party documents retain their own licences. No third-party logos are used.
 
 Send design feedback only, without personal health details, to andrew@stationarystore.ie. For adaptations, keep a version number and a change note, retain safety wording, and have people who will use the templates review them. See `docs/CONTRIBUTING.md`.

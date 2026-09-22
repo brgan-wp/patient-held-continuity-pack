@@ -1,6 +1,6 @@
 # Contributing
 
-Version 1.0.0 · 22 September 2026
+Version 1.0.1 · 22 September 2026
 
 Start with a blank or entirely fictional sheet. Do not include patient information, private correspondence or real medical records in contributions, screenshots or issues.
 

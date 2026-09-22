@@ -1,6 +1,6 @@
 # How to use this appointment sheet
 
-Version 1.0.0 · 22 September 2026
+Version 1.0.1 · 22 September 2026
 
 ## One sheet for one visit
 

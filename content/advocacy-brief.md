@@ -1,6 +1,6 @@
 # Patient-held Continuity Pack
 
-Version 1.0.0 · 22 September 2026 · Advocacy brief
+Version 1.0.1 · 22 September 2026 · Advocacy brief
 
 ## The problem
 
@@ -28,4 +28,4 @@ Please review the blank sheet for usefulness, reading burden, accessibility and 
 
 [2] HSE, National Medication Safety Programme (Safermeds): https://www2.healthservice.hse.ie/organisation/qps-improvement/national-medication-safety-programme-safermeds/
 
-Sources checked 22 September 2026. Pack: https://stationarystore.ie/patient-held-continuity-pack/
+Sources checked 22 September 2026. Pack: https://continuity.stationarystore.ie/

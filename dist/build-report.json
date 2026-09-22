@@ -1,58 +1,58 @@
 {
-  "advocacy-brief-v1.0.0.pdf": {
+  "advocacy-brief-v1.0.1.pdf": {
     "pages": 1,
-    "sha256": "122c4d0469d0a7b4b6bac1f955951e95bcb619f646e434a73dd118f444d5c9ea"
+    "sha256": "4835fad2057b7c2aa72dc28df7531441049fa7a7b0dacef91208505cbb0e620f"
   },
-  "advocacy-targets-v1.0.0.pdf": {
+  "advocacy-targets-v1.0.1.pdf": {
     "pages": 1,
-    "sha256": "276de501d8ba6e62d2c5224f2be5c243fe80da3ae549d2cf76e02c1e50b3d8ea"
+    "sha256": "007e8fcb2bbd67c7c8c8610fa2dadfd95ab866fdaece390e523e6d5529fd0bb9"
   },
-  "appointment-sheet-v1.0.0.pdf": {
+  "appointment-sheet-v1.0.1.pdf": {
     "pages": 1,
-    "sha256": "6380524f64d56c9ae94b417eab4ef73d38b8eb286a28e7ad9421272db8fe1024"
+    "sha256": "df3c691c0c0b887ca33595b9ed5a57a4efd430a31d96a7af330536add797c08f"
   },
-  "current-information-v1.0.0.pdf": {
+  "current-information-v1.0.1.pdf": {
     "pages": 1,
-    "sha256": "9eaeeaeaccd8718dd5e891f9c8ba1ac19e48fb28402f190b663139d19cdc55d0"
+    "sha256": "c86ea59cb6c310181b87cdb6bd50cf970ded1dd1bfddd257015000d8f558fa57"
   },
-  "evidence-v1.0.0.pdf": {
+  "evidence-v1.0.1.pdf": {
     "pages": 1,
-    "sha256": "b9674fb664d13698c9617824fa9f082de57d4d0c63baea0192701d8512e53833"
+    "sha256": "a322cc194757d812b09f9bf60a4c2830eaacc615d21936aff6fecbce0188a3c7"
   },
-  "folder-dividers-v1.0.0.pdf": {
+  "folder-dividers-v1.0.1.pdf": {
     "pages": 6,
-    "sha256": "77ca70b8450f1b6ce6c16ffdf0d6aacbd2ec42f3bf405f512c29457e8bba306c"
+    "sha256": "5c0bb302d3ada6b22c6d62eb1985d2cc043e89014b1e61887beb45f8d6498bfb"
   },
-  "follow-up-tracker-v1.0.0.pdf": {
+  "follow-up-tracker-v1.0.1.pdf": {
     "pages": 1,
-    "sha256": "22abd39a26793c58446b96029888f1b4c437a0710b32a3f82e5728bed59aa746"
+    "sha256": "1e41576d886ad30f1ce14a09f506479f765bf5ea1e347deeea3281bb25ab9103"
   },
-  "how-to-use-appointment-sheet-v1.0.0.pdf": {
+  "how-to-use-appointment-sheet-v1.0.1.pdf": {
     "pages": 1,
-    "sha256": "351bf0c44ed2e6d849f34f6b9d7c67e989f07d0bb2636e340522c7d3e62bd53c"
+    "sha256": "56b1afef581c2692980e654c65663f4ee869ca83a8836d5bf1c5fe3e308e27fe"
   },
-  "medicines-list-v1.0.0.pdf": {
+  "medicines-list-v1.0.1.pdf": {
     "pages": 1,
-    "sha256": "8f8a75d6a98283e62458b1a2cb471b6b517209339392031a4ee72c3e9b8422a8"
+    "sha256": "07ca2116009ed6cd6bd548ff0f25036d3940deed70c3b67fabde56ec1c2251b1"
   },
-  "pilot-consent-v1.0.0.pdf": {
+  "pilot-consent-v1.0.1.pdf": {
     "pages": 1,
-    "sha256": "0890b1207efc33d3f9b327fa44dcd63a2ca8f717a3e2a07f0b74464297a468f9"
+    "sha256": "99502769f07acc5d879a3b663d65d616ac22932e4c2145e29cc56719189cd144"
   },
-  "pilot-feedback-v1.0.0.pdf": {
+  "pilot-feedback-v1.0.1.pdf": {
     "pages": 1,
-    "sha256": "895dd9b62cfff5394620f52f70dc0ca2ce7e9454eae8b387c23769a0b1d8e017"
+    "sha256": "817c0910eb4d9b9cc022169ae277f6490bdf5278a583ebb003feece814b417bf"
   },
-  "pilot-plan-v1.0.0.pdf": {
+  "pilot-plan-v1.0.1.pdf": {
     "pages": 2,
-    "sha256": "bb185f9616c05866aecbfca713fe4e8d9976cf50e5f653c3b2de6929fcc92b6e"
+    "sha256": "89d67e073ec1f74ad23111016c899889b39c63e6c4d16feed0faf556d5b39882"
   },
-  "quick-start-v1.0.0.pdf": {
+  "quick-start-v1.0.1.pdf": {
     "pages": 1,
-    "sha256": "38c058da05f522fe432a9e552e08080226782738e1b8a76e513cf9272c530462"
+    "sha256": "c3b7e8925952cae45af69ae10511aba6d8058d88f1c71912b37f63c91f5cb0e4"
   },
-  "talk-script-v1.0.0.pdf": {
+  "talk-script-v1.0.1.pdf": {
     "pages": 3,
-    "sha256": "893c218f80f44807023368789e8a06ac79cd06f2b3610dd316d925b1fb42c1c6"
+    "sha256": "fc2b752e79596c1a37d2d029d4d87201a6ffae9fc1fc101f2ed96d5319a61b3f"
   }
 }

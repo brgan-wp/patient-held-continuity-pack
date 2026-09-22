@@ -1,6 +1,6 @@
 # Patient-held Continuity Pack: 15-minute talk
 
-Version 1.0.0 · 22 September 2026
+Version 1.0.1 · 22 September 2026
 
 Facilitator copy. Bring a blank folder, dividers, current-information sheet and appointment sheet. About 1,400 spoken words plus demonstration and quiet writing time. Use the clock cues to keep the session to 15 minutes; allow discussion afterwards. Everything in the demonstration is fictional. Do not invite personal medical stories in the room.
 
@@ -84,7 +84,7 @@ Facilitator copy. Bring a blank folder, dividers, current-information sheet and 
 
 ## 14:00 to 15:00 | The request
 
-“The pack is free to download, print and adapt under an open licence. The PDFs, editable files, source and guidance are at stationarystore.ie/patient-held-continuity-pack. The release number is on each template so changes can be tracked.
+“The pack is free to download, print and adapt under an open licence. The PDFs, editable files, source and guidance are at continuity.stationarystore.ie. The release number is on each template so changes can be tracked.
 
 “What I am asking for first is a review of the blank sheet. Is it useful? Is it readable? Could it add pressure or confusion? What should be removed or changed before a wider pilot?
 

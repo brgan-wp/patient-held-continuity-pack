@@ -44,7 +44,7 @@ def main():
             assert dest.is_relative_to(SITE.resolve()), (p, link)
             assert dest.exists(), (p, link)
             count += 1
-    pdfs = sorted(DIST.glob('*.pdf'))
+    pdfs = sorted(DIST.glob(f'*-v{VERSION}.pdf'))
     for p in pdfs:
         d = fitz.open(p)
         for page in d:
@@ -59,7 +59,7 @@ def main():
             assert len(d) == 11
     # Check that source paragraphs and cells survive conversion to PDF.
     normalise = lambda s: re.sub(r'\W+', '', s).lower()
-    for p in DIST.glob('*.docx'):
+    for p in DIST.glob(f'*-v{VERSION}.docx'):
         doc = Document(p)
         with fitz.open(p.with_suffix('.pdf')) as pdf:
             flattened = normalise(' '.join(page.get_text() for page in pdf))
@@ -69,7 +69,7 @@ def main():
             needle = normalise(text)
             if len(needle) > 10:
                 assert needle in flattened, (p.name, text)
-    for p in DIST.glob('*.zip'):
+    for p in DIST.glob(f'*-v{VERSION}.zip'):
         with zipfile.ZipFile(p) as z:
             assert z.testzip() is None
             assert any(n.endswith('/LICENSE') for n in z.namelist())
@@ -77,7 +77,7 @@ def main():
     for line in (DIST / 'SHA256SUMS').read_text().splitlines():
         digest, name = line.split('  ', 1)
         assert hashlib.sha256((DIST / name).read_bytes()).hexdigest() == digest
-    print(json.dumps({'status':'passed','html_pages':len(pages),'local_links_checked':count,'pdf_files':len(pdfs),'docx_files':len(list(DIST.glob('*.docx'))),'checks':['local links','no scripts/forms/iframes','A4 geometry','page text within bounds','versions on every PDF page','DOCX text preserved in PDF','archive integrity and scope','download checksums']},indent=2))
+    print(json.dumps({'status':'passed','html_pages':len(pages),'local_links_checked':count,'pdf_files':len(pdfs),'docx_files':len(list(DIST.glob(f'*-v{VERSION}.docx'))),'checks':['local links','no scripts/forms/iframes','A4 geometry','page text within bounds','versions on every PDF page','DOCX text preserved in PDF','archive integrity and scope','download checksums']},indent=2))
 
 
 if __name__ == '__main__':
