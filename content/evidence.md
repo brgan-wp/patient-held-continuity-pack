@@ -1,6 +1,6 @@
 # Evidence and limits
 
-Version 1.0.1 · Sources checked 22 September 2026
+Version 1.1.0 · Sources checked 22 September 2026
 
 ## HSE: preparing for a healthcare appointment
 

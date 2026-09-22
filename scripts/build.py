@@ -171,6 +171,18 @@ def forms():
     grid(d, ['Name and strength', 'How much I take, how I take it and when', 'Regular / as needed; instructions or limits', 'Source / date; notes or questions'], [43, 47, 43, 43], rows=5, height=25)
     box(d, 'Allergies / reactions: what caused them and what happened?', 26, 'Include source / date. Write “not sure” if uncertain.')
     d.add_paragraph('Do not change treatment because of this worksheet. Keep it current after advice from your clinical team and mark replaced lists “superseded”. Use another dated sheet if you need more rows.')
+    d.add_page_break()
+    d.add_heading('My pharmacy labels', 0)
+    p = d.add_paragraph('Side 2 of 2. Print the medicines sheet double-sided, flipping on the long edge.')
+    for r in p.runs: r.font.size = Pt(9)
+    p = d.add_paragraph('Ask your pharmacy whether it can supply a spare dispensing label, or attach a copy. Keep the original label and instructions on the medicine packaging. Labels may become outdated; keep the list on the front current and ask about any differences.')
+    for r in p.runs: r.font.size = Pt(10)
+    d.add_paragraph('Name / chosen identifier:                         Sheet date:')
+    for number in range(1, 4):
+        box(d, f'Label {number} | Added on:                         Matches medicine / row on front:', 56,
+            'Status: current / changed / stopped / not sure       Checked on:')
+    p = d.add_paragraph('Attach a spare label or copy in each space. If it is replaced, mark the old label “superseded” and date the change. Use another copy of this side if needed. A label is a reference, not confirmation that instructions are still current.')
+    for r in p.runs: r.font.size = Pt(9)
     save(d, 'medicines-list')
 
     d = base('Waiting and follow-up', 'An optional reminder for you. This sheet does not monitor results or contact anyone.')
@@ -269,6 +281,7 @@ def build_pdfs():
             LOG.warning('LibreOffice: %s', result.stderr.strip())
     expected = {name: 1 for name in ['appointment-sheet', 'current-information', 'medicines-list', 'follow-up-tracker', 'quick-start', 'how-to-use-appointment-sheet', 'advocacy-brief', 'pilot-consent', 'pilot-feedback']}
     expected['folder-dividers'] = 6
+    expected['medicines-list'] = 2
     report = {}
     for docx in sorted(OUT.glob(f'*-v{VERSION}.docx')):
         p = docx.with_suffix('.pdf')
@@ -289,6 +302,51 @@ def build_pdfs():
             bundle.insert_pdf(d)
     bundle.save(OUT / f'printable-starter-pack-v{VERSION}.pdf', garbage=4, deflate=True)
     (OUT / 'build-report.json').write_text(json.dumps(report, indent=2) + '\n')
+
+
+def previews():
+    """Build actual-page previews and static, downloadable carousel content."""
+    target = ROOT / 'site' / 'media' / 'pages'
+    target.mkdir(parents=True, exist_ok=True)
+    descriptions = {
+        'appointment-sheet': ('Appointment sheet', 'One sheet for one visit: your priorities, questions, understanding and next steps.'),
+        'current-information': ('Current information', 'A dated summary of what matters now, with sources and room for uncertainty.'),
+        'medicines-list': ('Medicines information', 'Your current list on the front. Three spaces for spare pharmacy labels or copies on the reverse.'),
+        'follow-up-tracker': ('Waiting and follow-up', 'Keep the next step, who arranges it and when to ask in view.'),
+        'folder-dividers': ('Folder dividers', 'Six printable dividers. Use the sections that help you.'),
+        'quick-start': ('Quick start', 'Begin with today’s information and the next appointment. Older letters can wait.'),
+        'how-to-use-appointment-sheet': ('Using the appointment sheet', 'A short explanation of what to write before, during and after a visit.'),
+        'advocacy-brief': ('Advocacy brief', 'A one-page introduction to the problem, the idea and the proposed review.'),
+        'evidence': ('Evidence and limitations', 'The sources behind the design, and what has not yet been established.'),
+        'advocacy-targets': ('Advocacy contacts', 'Verified groups to approach about review and patient support.'),
+        'talk-script': ('15-minute talk', 'A timed script for explaining the folder and inviting feedback.'),
+        'pilot-plan': ('Proposed pilot', 'A small, voluntary trial with consent and questions for feedback.'),
+        'pilot-consent': ('Pilot consent', 'Explain the proposed pilot and record a person’s choice to take part.'),
+        'pilot-feedback': ('Pilot feedback', 'Find out what helped, what did not and what should change.'),
+    }
+    slides = []
+    for slug, (title, description) in descriptions.items():
+        doc = fitz.open(OUT / f'{slug}-v{VERSION}.pdf')
+        for i, page in enumerate(doc):
+            filename = f'{slug}-v{VERSION}-{i+1}.webp'
+            pix = page.get_pixmap(matrix=fitz.Matrix(840 / page.rect.width, 840 / page.rect.width))
+            pix.pil_save(target / filename, format='WEBP', quality=86)
+            label = 'Pharmacy labels' if slug == 'medicines-list' and i == 1 else title
+            if slug == 'folder-dividers':
+                label = ['Current information', 'Appointments', 'Letters and care plans', 'Tests and results', 'Waiting and follow-up', 'Older information'][i] + ' divider'
+            idx = len(slides) + 1
+            loading = 'eager' if idx == 1 else 'lazy'
+            url = f'downloads/{slug}-v{VERSION}.pdf#page={i+1}'
+            slides.append(f'''<article class="preview-page" data-title="{html.escape(label, quote=True)}" role="group" aria-roledescription="slide" aria-label="{idx}: {html.escape(label, quote=True)}">
+<a class="preview-image" href="{url}" aria-label="Open {html.escape(label, quote=True)} PDF, page {i+1}"><img src="media/pages/{filename}" width="840" height="1188" loading="{loading}" decoding="async" alt="{html.escape(label, quote=True)}, page {i+1} of {len(doc)}. Preview of the blank printable page."></a>
+<div class="preview-detail"><p class="eyebrow">{'For your folder' if idx <= 13 else 'For advocates'} · v{VERSION} · Page {i+1} of {len(doc)}</p><h3>{html.escape(label)}</h3><p>{html.escape(description)}</p><p class="preview-links"><a href="{url}">Open PDF ↗</a><a href="downloads/{slug}-v{VERSION}.docx">Editable Word ↓</a></p></div></article>''')
+    page = ROOT / 'site' / 'downloads.html'
+    raw = page.read_text()
+    raw = re.sub(r'<!-- PREVIEW PAGES START -->.*?<!-- PREVIEW PAGES END -->', '<!-- PREVIEW PAGES START -->\n' + '\n'.join(slides) + '\n<!-- PREVIEW PAGES END -->', raw, flags=re.S)
+    raw = re.sub(r'(data-preview-count[^>]*>)\d+ / \d+', rf'\g<1>1 / {len(slides)}', raw)
+    raw = re.sub(r'(id="preview-slider"[^>]*max=")\d+', rf'\g<1>{len(slides)}', raw)
+    page.write_text(raw)
+    LOG.info('Rendered %s actual-page previews', len(slides))
 
 
 def bundles():
@@ -335,7 +393,7 @@ def guides():
         raw = re.sub(r'(?<![\(<])(https://[^\s<>]+)', r'<\1>', raw)
         body = markdown.markdown(raw, extensions=['fenced_code', 'tables'])
         title = html.escape(p.read_text().splitlines()[0].lstrip('# '))
-        page = f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><title>{title} | Patient-held Continuity Pack</title><link rel="stylesheet" href="../style.css?rev=20260922b"></head><body><a class="skip" href="#main">Skip to content</a><main id="main" class="guide"><a class="back" href="../index.html">Back to the pack and downloads</a>{body}</main><footer>Patient-held Continuity Pack · v{VERSION} · {DATE} · <a href="../LICENSE.txt">MIT licence</a></footer></body></html>'''
+        page = f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><title>{title} | Patient-held Continuity Pack</title><link rel="stylesheet" href="../style.css?rev=20260922c"></head><body><a class="skip" href="#main">Skip to content</a><main id="main" class="guide"><a class="back" href="../index.html">Back to the pack and downloads</a>{body}</main><footer>Patient-held Continuity Pack · v{VERSION} · {DATE} · <a href="../LICENSE.txt">MIT licence</a></footer></body></html>'''
         (target / f'{slug}.html').write_text(page)
     shutil.copy2(ROOT / 'LICENSE', ROOT / 'site' / 'LICENSE.txt')
 
@@ -357,6 +415,7 @@ def main():
     markdown_docs()
     build_pdfs()
     guides()
+    previews()
     bundles()
     assemble_site()
     LOG.info('Release v%s complete: %s', VERSION, OUT)

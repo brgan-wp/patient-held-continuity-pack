@@ -1,6 +1,6 @@
 # A small, optional usability pilot
 
-Version 1.0.1 · 22 September 2026 · Proposed plan, not an enrolled study
+Version 1.1.0 · 22 September 2026 · Proposed plan, not an enrolled study
 
 ## Purpose and scale
 

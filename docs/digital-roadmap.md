@@ -1,6 +1,6 @@
 # Digital exploration placeholder
 
-Version 1.0.1 · 22 September 2026
+Version 1.1.0 · 22 September 2026
 
 ## Phase one: static files only
 
@@ -12,4 +12,4 @@ Begin with observed usability needs, not a decision to build an app. Possible qu
 
 Any future design must be privacy first, local first or self-hosted. Define who controls the data, minimise collection, make export and deletion clear, and explain the limits of backups and recovery. Sharing must be deliberate and understandable. No advertising, sale of health data or default third-party AI processing. Review accessibility, threat model, security and applicable governance before handling real records. A digital tool must not imply that it verifies clinical accuracy or monitors missing results.
 
-Open questions: who wants it; what paper cannot do; offline access; supported file formats; correction history; consent for sharing; secure backup and recovery; maintenance ownership. These remain questions, not features in v1.0.1.
+Open questions: who wants it; what paper cannot do; offline access; supported file formats; correction history; consent for sharing; secure backup and recovery; maintenance ownership. These remain questions, not features in v1.1.0.

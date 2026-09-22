@@ -1,6 +1,6 @@
 # Patient-held Continuity Pack
 
-Version 1.0.1 · 22 September 2026 · Advocacy brief
+Version 1.1.0 · 22 September 2026 · Advocacy brief
 
 ## The problem
 

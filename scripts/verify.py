@@ -23,9 +23,11 @@ class Links(HTMLParser):
         self.scripts = []
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
-        if tag in ['a', 'link', 'img']:
+        if tag in ['a', 'link', 'img', 'script', 'source']:
             self.links.append(attrs.get('href', attrs.get('src', '')))
-        if tag in ['script', 'form', 'iframe']:
+        if tag == 'video' and attrs.get('poster'):
+            self.links.append(attrs['poster'])
+        if tag in ['form', 'iframe'] or (tag == 'script' and attrs.get('src') != 'site.js?rev=20260922c'):
             self.scripts.append(tag)
 
 
@@ -55,8 +57,12 @@ def main():
                     for span in line['spans']:
                         x0,y0,x1,y1 = span['bbox']
                         assert x0 >= 10 and x1 <= page.rect.width - 10 and y0 >= 5 and y1 <= page.rect.height - 5, (p, page.number, span['text'])
+        if p.stem.startswith('medicines-list'):
+            assert len(d) == 2
+            assert 'My pharmacy labels' in d[1].get_text()
+            assert 'Keep the original label' in d[1].get_text()
         if p.stem.startswith('printable-starter'):
-            assert len(d) == 11
+            assert len(d) == 12
     # Check that source paragraphs and cells survive conversion to PDF.
     normalise = lambda s: re.sub(r'\W+', '', s).lower()
     for p in DIST.glob(f'*-v{VERSION}.docx'):
@@ -77,7 +83,7 @@ def main():
     for line in (DIST / 'SHA256SUMS').read_text().splitlines():
         digest, name = line.split('  ', 1)
         assert hashlib.sha256((DIST / name).read_bytes()).hexdigest() == digest
-    print(json.dumps({'status':'passed','html_pages':len(pages),'local_links_checked':count,'pdf_files':len(pdfs),'docx_files':len(list(DIST.glob(f'*-v{VERSION}.docx'))),'checks':['local links','no scripts/forms/iframes','A4 geometry','page text within bounds','versions on every PDF page','DOCX text preserved in PDF','archive integrity and scope','download checksums']},indent=2))
+    print(json.dumps({'status':'passed','html_pages':len(pages),'local_links_checked':count,'pdf_files':len(pdfs),'docx_files':len(list(DIST.glob(f'*-v{VERSION}.docx'))),'checks':['local links','only local presentation script; no forms/iframes','A4 geometry','page text within bounds','versions on every PDF page','DOCX text preserved in PDF','archive integrity and scope','download checksums']},indent=2))
 
 
 if __name__ == '__main__':

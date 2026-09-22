@@ -1,6 +1,6 @@
 # Patient-held Continuity Pack: 15-minute talk
 
-Version 1.0.1 · 22 September 2026
+Version 1.1.0 · 22 September 2026
 
 Facilitator copy. Bring a blank folder, dividers, current-information sheet and appointment sheet. About 1,400 spoken words plus demonstration and quiet writing time. Use the clock cues to keep the session to 15 minutes; allow discussion afterwards. Everything in the demonstration is fictional. Do not invite personal medical stories in the room.
 

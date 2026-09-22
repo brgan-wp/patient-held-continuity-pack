@@ -1,0 +1,9 @@
+# Folder film
+
+Original procedural 3D scene for the Patient-held Continuity Pack, MIT licensed. A closed folder on a consultation desk, stethoscope and stationery; camera moves in, the cover opens, actual blank release pages turn, it closes, the camera pulls back and follows the same folder into a home cupboard beside generic medicine containers. No real patient information or branded medicines. Silent, 24 seconds, 960 × 840, 24 fps, H.264 MP4.
+
+Build the release documents with `python3 scripts/build.py`. For the film, additionally install Python `playwright` and have `/usr/bin/chromium` and `ffmpeg` available. Run `python3 scripts/animation/render.py`. It fetches pinned Three.js 0.170.0 from jsDelivr into the ignored `.animation-cache` directory if absent. Three.js is MIT licensed; its notice is in THREE-LICENSE.txt. No dependency is fetched by website visitors. The canvas scene runs only during rendering.
+
+`scene.js` owns geometry, materials and timed camera/object poses. `render.py` extracts textures from the blank PDFs, renders deterministically in local Chromium with software WebGL, and pipes frames into ffmpeg. MP4 and WebP poster land in `site/media`. Cover text version is set in scene.js and must follow VERSION. Re-run `guides()`, `previews()`, `bundles()` and `assemble_site()` from scripts.build after rendering to include the new film in offline/source bundles.
+
+The public site uses a native video element with playback controls and a short textual description. Its local presentation script starts playback only when reduced motion and data saving are not requested. Only metadata is preloaded before playback. No sound, loop, player service, cookies, analytics or uploads. Without JavaScript, visitors can play using native controls. A blocked autoplay leaves those controls available.

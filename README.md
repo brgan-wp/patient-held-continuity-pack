@@ -1,6 +1,6 @@
 # Patient-held Continuity Pack
 
-Version **1.0.1** · 22 September 2026 · First public release, not clinically validated.
+Version **1.1.0** · 22 September 2026 · Public release, not clinically validated.
 
 A free, open-source folder kit for keeping your own notes and copies of healthcare information together. Bring it to appointments, write down what you understand, and keep track of the next step. It is a patient support tool, not a clinical system.
 
@@ -8,12 +8,12 @@ A free, open-source folder kit for keeping your own notes and copies of healthca
 
 Published downloads: https://continuity.stationarystore.ie/
 
-Website revision 2, 22 September 2026: an introduction with separate downloads, advocacy and background pages. See docs/DESIGN.md for the owner’s design direction. The PDF and Word templates remain v1.0.1.
+Website revision 3, 22 September 2026: an introduction with separate downloads, advocacy and background pages. See docs/DESIGN.md for the owner’s design direction. Release v1.1.0 adds a second side to the medicines sheet for spare pharmacy labels or copies, with dates and status. The homepage includes a locally hosted 3D folder film.
 
 ## Start today
 
 1. Download the printable starter pack, or individual PDFs from the website.
-2. Print on A4 at actual size. Use any folder; colour printing and special stationery are unnecessary. Dividers print on separate sheets.
+2. Print on A4 at actual size. Use any folder; colour printing and special stationery are unnecessary. Dividers print on separate sheets. Print the standalone medicines sheet double-sided, flipping on the long edge; ask for spare pharmacy labels or attach copies on its reverse while keeping original labels on the packaging.
 3. Put the current information and dated medicines list first. Write “not sure” for anything uncertain. Keep a pharmacist's or clinical team's current list alongside your notes if you have one.
 4. Put a blank appointment sheet behind them. Choose the questions that matter most for the next visit.
 5. After the visit, note who is doing what, by when, and how you will hear about results. File the sheet and add open items to the follow-up tracker.
@@ -21,7 +21,8 @@ Website revision 2, 22 September 2026: an introduction with separate downloads, 
 ## What's included
 
 - A one-page quick start and short appointment-sheet explainer.
-- A one-page appointment sheet, current-information sheet, medicines list and follow-up tracker.
+- A one-page appointment sheet, current-information sheet and follow-up tracker.
+- A two-sided medicines sheet: current list on the front, spare pharmacy labels or copies on the reverse.
 - Six full-page folder dividers: Current information; Appointments; Letters and care plans; Tests and results; Waiting and follow-up; Older information.
 - A neutral one-page advocacy brief, sources and evidence limits, verified outreach targets, a timed 15-minute talk, and a proposed pilot with consent and feedback sheets.
 - Printable PDFs, editable DOCX documents, Markdown guidance, source code and an offline HTML website. Every document carries its version.
@@ -50,13 +51,17 @@ Begin with the one-page brief. It explains the problem and the limits of the pro
 
 See `content/evidence.md` and `content/advocacy-targets.md` for primary sources and verification dates. Other organisations' resources are linked, not relicensed or bundled. This pack does not replace an existing care passport, medicines list or service care plan that works for you.
 
+## Source repository
+
+Fork or branch the project at https://github.com/brgan-wp/patient-held-continuity-pack. The printable-page preview is generated from the release PDFs. The original 3D folder film can be rebuilt using `scripts/animation/render.py`; see `scripts/animation/README.md`. All media are served locally.
+
 ## Digital roadmap
 
-Version 1.0.1 is complete as a static release. Later digital exploration is a placeholder only. Any future work must be privacy first and local first or self-hosted. See `docs/digital-roadmap.md`. There is no portal, AI summary, automatic sharing or digital patient record in this release.
+Version 1.1.0 is complete as a static release. Later digital exploration is a placeholder only. Any future work must be privacy first and local first or self-hosted. See `docs/digital-roadmap.md`. There is no portal, AI summary, automatic sharing or digital patient record in this release.
 
 ## Rebuild and adapt
 
-Requires Python 3, python-docx, PyMuPDF, Markdown and LibreOffice. On a machine with those installed:
+Requires Python 3, python-docx, PyMuPDF, Markdown, Pillow and LibreOffice. On a machine with those installed:
 
 ```sh
 python3 scripts/build.py
@@ -68,6 +73,6 @@ The build uses a separate temporary LibreOffice profile, checks expected page co
 
 ## Licence and contributions
 
-All original text, templates, layout and code in this repository are released under the MIT licence in `LICENSE`. You may use, copy, adapt and redistribute them, including commercially, while keeping the copyright and licence notice. Attribution: “Patient-held Continuity Pack, Andrew Brogan, v1.0.1.” Do not imply clinical approval or endorsement by Andrew Brogan or any linked organisation. Third-party documents retain their own licences. No third-party logos are used.
+All original text, templates, layout and code in this repository are released under the MIT licence in `LICENSE`. You may use, copy, adapt and redistribute them, including commercially, while keeping the copyright and licence notice. Attribution: “Patient-held Continuity Pack, Andrew Brogan, v1.1.0.” Do not imply clinical approval or endorsement by Andrew Brogan or any linked organisation. Third-party documents retain their own licences. No third-party logos are used.
 
 Send design feedback only, without personal health details, to andrew@stationarystore.ie. For adaptations, keep a version number and a change note, retain safety wording, and have people who will use the templates review them. See `docs/CONTRIBUTING.md`.
